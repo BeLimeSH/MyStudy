@@ -1,0 +1,62 @@
+@import url('https://fonts.googleapis.com/css2?family=Hi+Melody&display=swap');
+
+#size-test > li:nth-child(1){font-size: 24px;}
+#size-test > li:nth-child(2){font-size: 18pt;}
+#size-test > li:nth-child(3){font-size: 150%;}
+
+/* 크롬브라우저 기준
+    기본 글꼴 크기 : 16px
+*/
+#weight-test>li{font-size: 24px;}
+
+/* font-weight */
+#weight-test>li:nth-child(1){font-weight: 600;}
+#weight-test>li:nth-child(2){font-weight: bold;}
+#weight-test>li:nth-child(3){font-weight: bolder;}
+#weight-test>li:nth-child(4){font-weight: lighter;}
+#weight-test>li:nth-child(5){
+    font-weight: normal; font-style: oblique;
+    /* oblique : 비스듬한 */
+
+    /* font-style : 글꼴의 모양을 지정하는 속성 */
+    /* italic : 폰트에서 제공하는 비슷한 글자 */
+    /* oblique : 강제로 글자를 비스듬 하게 변경 */
+}
+
+/* font-family */
+.cls > li{font-size: 24px;}
+
+#family-test1 > li:nth-child(1){
+    font-family: '궁서';
+}
+
+#family-test1 > li:nth-child(2){
+    font-family: '배달의민족체';
+} /* 없는 폰트는 기본폰트 */
+
+#family-test1 > li:nth-child(3){
+    font-family: '배달의민족체', '굴림';
+}
+
+/* 웹 폰트 */
+/* link 태그를 이용한 방법 */
+#family-test2 > li:nth-child(1){
+    font-family: 'Dongle', sans-serif;
+}
+
+/* @import는 css파일 제일 상단에 작성해야 한다. */
+#family-test2 > li:nth-child(2){
+    font-family: 'Hi Melody', cursive;
+}
+
+@font-face {
+    font-family: 'Yeongdo-Rg';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2202-2@1.0/Yeongdo-Rg.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* @font-face 이용 */
+#family-test2 > li:nth-child(3){
+    font-family: 'Yeongdo-Rg';
+}

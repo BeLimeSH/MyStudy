@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+
+	<comment>Member Service SQL</comment>
+	
+	<!-- 아이디 중복 검사 -->
+	<entry key="duplicateCheckId">
+	SELECT COUNT(*)
+	FROM MEMBER
+	WHERE MEMBER_ID = ?
+	AND SECESSION_FL = 'N'
+	</entry>
+	
+	<!-- 닉네임 중복 검사 -->
+	<entry key="duplicateCheckNick">
+	SELECT COUNT(*)
+	FROM MEMBER
+	WHERE MEMBER_NICKNM = ?
+	AND SECESSION_FL = 'N'
+	</entry>
+	
+	<!-- 회원 가입 -->
+	<entry key="signUp">
+	INSERT INTO MEMBER
+	VALUES(SEQ_MEM_NO.NEXTVAL, ?, ?, ?, ?, ?, DEFAULT, DEFAULT, ?, ?, ?)
+	</entry>
+	
+	<!-- 로그인 -->
+	<entry key="login">
+	SELECT MEMBER_NO, MEMBER_ID, MEMBER_NM, MEMBER_GENDER, MEMBER_ADRESS, 
+			ENROLL_DATE, PHONE, MEMBER_NICKNM, MEMBER_AGE, MEMBER_PWD
+	FROM MEMBER
+	WHERE MEMBER_ID = ?
+	AND MEMBER_PWD = ?
+	AND SECESSION_FL = 'N'
+	</entry>
+
+	<!-- 닉네임 변경 -->
+	<entry key="updateNickname">
+	UPDATE MEMBER
+	SET MEMBER_NICKNM = ?
+	WHERE MEMBER_NO = ?
+	</entry>
+	
+	<!-- 프로필 변경(이름, 연락처, 주소) -->
+	<entry key="updateProfile">
+	UPDATE MEMBER
+	SET MEMBER_NM = ?, PHONE = ?, MEMBER_ADRESS = ?
+	WHERE MEMBER_NO = ?
+	</entry>
+	
+	<!-- 비밀번호 변경 -->
+	<entry key="updatePw">
+	UPDATE MEMBER
+	SET MEMBER_PWD = ?
+	WHERE MEMBER_NO = ?
+	</entry>
+	
+	<!-- 회원 탈퇴 -->
+	<entry key="secession">
+	UPDATE MEMBER SET SECESSION_FL = 'Y'
+	WHERE MEMBER_NO = ?
+	AND MEMBER_PWD = ?
+	</entry>
+	
+</properties>
