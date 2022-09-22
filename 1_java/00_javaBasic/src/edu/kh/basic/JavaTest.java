@@ -26,7 +26,7 @@ public class JavaTest {
 		
 		System.out.println("1 + 2");
 		System.out.println(1 + 2);
-		// "" 안에 작성된 텍스츠는 단순 문자열로 인식
+		// "" 안에 작성된 텍스트는 단순 문자열로 인식
 		// "" 안에 작성되지 않은 코드는 숫자, 변수로 인식
 		
 		System.out.println(50 - 23);
