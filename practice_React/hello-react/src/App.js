@@ -1,25 +1,85 @@
-import logo from './logo.svg';
-import './App.css';
+import { Fragment } from 'react';
 
+// 2장 JSX
+// 2.4 JSX 문법
+
+/*
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    // 2.4.1 감싸인 요소
+    // 컴포넌트에 여러 요소가 있다면 반드시 부모 요소 하나로 감싸야 한다.
+    
+    // 예제 1)
+    //  <h1>리액트 안녕!</h1>
+    //  <h2>잘 작동하니?</h2>
+    // -> 해당 코드는 두 코드를 감싸는 부모 요소가 없기때문에 오류 발생
+    
+    // 예제 2) div로 감싼 코드
+    //<div>
+    //  <h1>리액트 안녕!</h1>
+    //  <h2>잘 작동하니?</h2>
+    //</div>
+
+    // 예제 3) Fragment로 감싼 코드
+    // -> Fragment import 필요!!
+    //<Fragment>
+    //  <h1>리액트 안녕!</h1>
+    //  <h2>잘 작동하니?</h2>
+    //</Fragment>
+
+    // 아래와 같은 형태로도 작성 가능
+    <>
+      <h1>리액트 안녕!</h1>
+      <h2>잘 작동하니?</h2>
+    </>
   );
+}
+*/
+
+/*
+function App() {
+  const name = '리액트';
+  return (
+    // 2.4.2 자바스크립트 표현
+    // 자바스크립트 표현식을 작성할 때 코드를 {} 로 감싸면 된다.
+
+    <>
+      <h1>{name} 안녕!</h1>
+      <h2>잘 작동하니?</h2>
+    </>
+  );
+}
+*/
+
+/*
+function App() {
+  const name = '리액트';
+  return (
+    // 2.4.3 If 문 대신 조건부연산자
+    // JSX 내부의 자바스크립트 표현식에서 if문 사용 불가능
+    // 방법 1) JSX 밖에서 if문을 사용하여 사전에 값을 설정
+    // 방법 2) { } 내부에 조건부 연산자(삼항 연산자) 사용
+
+    // 방법 2
+    <>
+      {name === '리액트' ? (
+        <h1>리액트입니다.</h1>
+      ) : (
+        <h2>리액트가 아닙니다.</h2>
+      )}
+    </>
+  );
+}
+*/
+
+function App() {
+  const name = '리액트';
+  // 2.4.4 AND 연산자(&&)를 사용한 조건부 렌더링
+  // 예제 1)
+  //return <div>{name === '리액트' ? <h1>리액트입니다.</h1> : null}</div>;
+
+  //예제 2)
+  return <div>{name === '리액트' && <h1>리액트입니다.</h1>}</div>;
 }
 
 export default App;
